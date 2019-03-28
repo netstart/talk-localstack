@@ -37,31 +37,14 @@ docker run -p 8080:8080 -p 4572:4572 -p 4576:4576 -p 4569:4569 localstack/locals
 
 ```
 
-##### Criar fila no SQS
-```
-aws sqs create-queue --endpoint-url=http://localhost:4576  --queue-name ORDER --region sa-east-1
-```
+[SQS](src/com/github/talk/localstack/sqs/readme.md)
 
 
-##### Enviar menssagem para o SQS
-
-```
-aws sqs send-message \
---endpoint-url http://localhost:4576 \
---queue-url http://localhost:4576/queue/ORDER  \
---message-body '{"eventType": "ORDER_STATE_CHANGE","parameters":{"ORDER_ID":"1234","CURRENT_ORDER_STATE": "CANCELLED"}}' \
---message-attributes '{"tenant-identifier":{"DataType": "String","StringValue": "br"}}'
-```
 
 
-##### Receber menssagem da fila
+#### Referências
+https://lobster1234.github.io/2017/04/05/working-with-localstack-command-line/
 
-```
-aws sqs receive-message --endpoint-url http://localhost:4576 --queue-url http://localhost:4576/queue/ORDER 
-```
+https://github.com/fabianoo/spring-localstack
 
-
-#### Apagar a menssagem
-```
-aws --endpoint-url=http://localhost:4576 sqs delete-message --queue-url http://localhost:4576/queue/ORDER --receipt-handle 'código_que_veio_no_comando_de_receive_message'
-```
+https://github.com/smartupio/localstack-spring-boot
