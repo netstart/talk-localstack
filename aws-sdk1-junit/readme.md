@@ -1,6 +1,6 @@
 Run unit test
 
-[AmazonSQSServiceTest](src/main/java/com/github/talk/localstack/sqs/AmazonSQSServiceTest.java)
+[AmazonSQSServiceTest](src/test/java/com/github/talk/localstack/sqs/AmazonSQSServiceTest.java)
 
 
 ### Referências
