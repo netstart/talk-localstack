@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.github.talk</groupId>
+    <artifactId>localstack</artifactId>
+
+    <version>1.0-SNAPSHOT</version>
+    <properties>
+        <java.version>11</java.version>
+        <guava.version>23.0</guava.version>
+        <aws.sdk.version>1.11.415</aws.sdk.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-sqs</artifactId>
+            <version>${aws.sdk.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>cloud.localstack</groupId>
+            <artifactId>localstack-utils</artifactId>
+            <version>0.1.19</version>
+            <scope>test</scope>
+        </dependency>
+
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>
