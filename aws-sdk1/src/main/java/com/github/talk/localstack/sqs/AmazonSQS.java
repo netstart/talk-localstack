@@ -25,6 +25,8 @@ public class AmazonSQS {
          List<Message> messages = receiveMessageResultFuture.get().getMessages();
         for (Message msg : messages) {
             System.out.println(msg.getBody());
+
+            //apaga a msg
             amazonSQSAsync.deleteMessage(LocalStackConfig.AMAZON_SQS_ENDPOINT, msg.getReceiptHandle());
         }
 

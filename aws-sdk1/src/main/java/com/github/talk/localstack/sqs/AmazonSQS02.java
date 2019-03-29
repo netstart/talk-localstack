@@ -35,13 +35,15 @@ public class AmazonSQS02 {
         amazonSQSAsync.sendMessage(sendMessageRequest);
 
 
-        // ler mensagem sem os atributos
+        // ler msg sem os atributos
         final Future<ReceiveMessageResult> receiveMessageResultFuture = amazonSQSAsync.receiveMessageAsync(LocalStackConfig.AMAZON_SQS_ENDPOINT);
         List<Message> messages = receiveMessageResultFuture.get().getMessages();
         for (Message msg : messages) {
             System.out.println(msg.getBody());
             System.out.println(msg.getAttributes());
             System.out.println(msg.getMessageAttributes()); //este são os que eu adicionei ao enviar a msg
+
+            //apaga a msg
             amazonSQSAsync.deleteMessage(LocalStackConfig.AMAZON_SQS_ENDPOINT, msg.getReceiptHandle());
         }
 
