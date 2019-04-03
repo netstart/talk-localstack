@@ -14,6 +14,14 @@ aws sqs send-message \
 --message-attributes '{"tenant-identifier":{"DataType": "String","StringValue": "br"}}'
 ```
 
+Como seria enviar para a AWS?
+``` 
+aws sqs send-message --endpoint-url https://sqs.sa-east-1.amazonaws.com/739171219021/ORDER \
+--queue-url https://sqs.sa-east-1.amazonaws.com/739171219021/ORDER  \
+--message-body '{"eventType": "ORDER_STATE_CHANGE","parameters":{"ORDER_ID":"1234","CURRENT_ORDER_STATE": "CANCELLED"}}' \
+--message-attributes '{"tenant-identifier":{"DataType": "String","StringValue": "br"}}' \
+--region sa-east-1
+```
 ##### Receber menssagem da fila
 
 ```

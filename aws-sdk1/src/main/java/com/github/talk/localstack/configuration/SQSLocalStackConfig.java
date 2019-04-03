@@ -5,10 +5,10 @@ import com.amazonaws.services.sqs.AmazonSQSAsync;
 import com.amazonaws.services.sqs.AmazonSQSAsyncClientBuilder;
 import com.amazonaws.services.sqs.buffered.AmazonSQSBufferedAsyncClient;
 
-public class LocalStackConfig {
+public class SQSLocalStackConfig {
 
     /**
-     * Para testes o caminho completo foi necessário, em produção apenas o nome da fila 'ORDER' foi suficiente
+     * Para testes o caminho completo foi necessário, em produção apenas o nome da fila 'ORDER' é  suficiente
      */
     public static final String AMAZON_SQS_ENDPOINT = "http://localhost:4576/queue/ORDER";
 
@@ -16,14 +16,14 @@ public class LocalStackConfig {
 
 
     /**
-     * Para produção isto basta
+     * Normalmente isto é suficiente
      */
     public AmazonSQSAsync amazonSQS() {
         return new AmazonSQSBufferedAsyncClient(AmazonSQSAsyncClientBuilder.defaultClient());
     }
 
     /**
-     * Para testes, precisamos definir algumas coisas manualmente
+     * Talvez você precise customizar algum parâmetro
      */
     public AmazonSQSAsync amazonSQSAsync() {
         return AmazonSQSAsyncClientBuilder.standard()
