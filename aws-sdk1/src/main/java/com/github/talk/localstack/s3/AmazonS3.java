@@ -8,8 +8,8 @@ public  class AmazonS3 {
     public static void main(String [] args) {
         com.amazonaws.services.s3.AmazonS3 s3 = new S3LocalStackConfig().s3Localstack();
 
-        final String bucketName = "order";
-        final String fullPathName = "order/1.json";
+        final String bucketName = "ORDER";
+        final String fullPathName = "now/1.json";
         final String content = "{id: 1, lastname: Passos}";
 
         //salvar
