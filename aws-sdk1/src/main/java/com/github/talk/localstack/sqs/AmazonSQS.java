@@ -10,6 +10,11 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
+/**
+ * Antes crie a fila antes
+ *
+ * aws sqs create-queue --endpoint-url=http://localhost:4576  --queue-name ORDER --region sa-east-1
+ */
 public class AmazonSQS {
 
     public static void main(String[] str) throws ExecutionException, InterruptedException {
@@ -17,7 +22,7 @@ public class AmazonSQS {
 
         final AmazonSQSAsync amazonSQSAsync = localStack.amazonSQS();
 
-        // Crie a fila antes:  aws sqs create-queue --endpoint-url=http://localhost:4576  --queue-name ORDER --region sa-east-1
+
 
         // enviar mensagem
         final SendMessageResult sendMessageResult = amazonSQSAsync.sendMessage(SQSLocalStackConfig.AMAZON_SQS_ENDPOINT, "{id: 1, name: Clayton}");

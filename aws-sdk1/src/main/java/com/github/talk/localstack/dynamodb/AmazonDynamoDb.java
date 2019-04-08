@@ -14,6 +14,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Antes crie a tabela order
+ *
+ *
+ * aws dynamodb create-table  --endpoint-url=http://localhost:4569 \
+ *     --table-name order \
+ *     --attribute-definitions \
+ *         AttributeName=id,AttributeType=S \
+ *     --key-schema AttributeName=id,KeyType=HASH \
+ *     --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1
+ */
 public class AmazonDynamoDb {
 
 

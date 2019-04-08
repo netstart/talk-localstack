@@ -2,6 +2,11 @@ package com.github.talk.localstack.s3;
 
 import com.github.talk.localstack.configuration.S3LocalStackConfig;
 
+/**
+ * Crie o bucket antes
+ *
+ * aws --endpoint-url=http://localhost:4572 s3 mb s3://ORDER
+ */
 public  class AmazonS3 {
 
 
